@@ -11,18 +11,21 @@ config_version=5
 [application]
 
 config/name="Learning Thing"
+run/main_scene="uid://b2n17cx4l4dmd"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 ConfigFileHandler="*uid://h252obsemfu3"
+GameManager="*uid://cd6if3x76gdeh"
+NetworkManager="*uid://5kvnydhj4l73"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/resizable=false
 
 [input]
 

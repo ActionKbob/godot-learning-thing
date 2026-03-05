@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlong620k6g8c"]
 
-[ext_resource type="PackedScene" uid="uid://brha26ev26h0c" path="res://ui/user_inputs/input_button.tscn" id="1_5txpu"]
-[ext_resource type="Script" uid="uid://bevkdwwo8w83f" path="res://ui/user_inputs/input_settings.gd" id="1_g6gap"]
+[ext_resource type="PackedScene" uid="uid://brha26ev26h0c" path="res://settings_ui/user_inputs/input_button.tscn" id="1_5txpu"]
+[ext_resource type="Script" uid="uid://bevkdwwo8w83f" path="res://settings_ui/user_inputs/input_settings.gd" id="1_g6gap"]
 [ext_resource type="Script" uid="uid://bxvcx06imnc1g" path="res://common/key_value_pair.gd" id="2_yc628"]
 
 [sub_resource type="Resource" id="Resource_rsnrg"]

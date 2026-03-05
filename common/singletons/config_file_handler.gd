@@ -16,18 +16,20 @@ func _ready() -> void :
 		
 func load_keybindings() :
 	var keybindings = {};
-	for key in config.get_section_keys( SECTION_ID.KEYBINDINGS ) :
-		var input_event;
-		var event_string = config.get_value( SECTION_ID.KEYBINDINGS, key );
-		
-		if( event_string.contains( "mouse_" ) ) :
-			input_event = InputEventMouseButton.new();
-			input_event.button_index = int( event_string.split( "-" )[1] );
-		else : 
-			input_event = InputEventKey.new();
-			input_event.keycode = OS.find_keycode_from_string( event_string );
+	
+	if config.has_section( SECTION_ID.KEYBINDINGS ) :
+		for key in config.get_section_keys( SECTION_ID.KEYBINDINGS ) :
+			var input_event;
+			var event_string = config.get_value( SECTION_ID.KEYBINDINGS, key );
 			
-		keybindings[ key ] = input_event;
+			if( event_string.contains( "mouse_" ) ) :
+				input_event = InputEventMouseButton.new();
+				input_event.button_index = int( event_string.split( "-" )[1] );
+			else : 
+				input_event = InputEventKey.new();
+				input_event.keycode = OS.find_keycode_from_string( event_string );
+				
+			keybindings[ key ] = input_event;
 		
 	return keybindings;
 	
