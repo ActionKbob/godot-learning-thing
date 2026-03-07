@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://t8d51thjpntm"]
+
+[ext_resource type="Texture2D" uid="uid://ciqnnyp6a1lgw" path="res://icon.svg" id="1_yw8hs"]
+
+[node name="ShipInterior" type="Node2D" unique_id=771044444]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455239212]
+position = Vector2(666, 360)
+texture = ExtResource("1_yw8hs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=109233449]
+position = Vector2(1092, 582)
+texture = ExtResource("1_yw8hs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=176864057]
+position = Vector2(1292, 234)
+texture = ExtResource("1_yw8hs")
