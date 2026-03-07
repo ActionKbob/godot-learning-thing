@@ -1,6 +1,6 @@
 extends Control
 
-@onready var input_button_scene = preload("res://ui/user_inputs/input_button.tscn");
+@onready var input_button_scene = preload("res://settings_ui/user_inputs/input_button.tscn");
 @onready var action_list_node = $Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList;
 
 @export var input_action_filter : Array[KeyValuePair] = [];
@@ -12,14 +12,16 @@ var remapping_button : InputButton = null;
 func _ready() -> void :
 	_load_keybindings_from_config();	
 	_populate_action_list();
-	
+
+
 func _load_keybindings_from_config() -> void :
 	var keybindings = ConfigFileHandler.load_keybindings();
 	
 	for action in keybindings.keys() :
 		InputMap.action_erase_events( action );
 		InputMap.action_add_event( action, keybindings[ action ] );
-	
+
+
 func _input( event ) -> void :
 	if is_remapping :
 		if event is InputEventKey or ( event is InputEventMouseButton and event.is_pressed() ) :
@@ -41,7 +43,8 @@ func _input( event ) -> void :
 			action_to_remap = null;
 			
 			accept_event();
-	
+
+
 func _populate_action_list() -> void :
 	_clear_action_list();
 	
@@ -62,7 +65,8 @@ func _populate_action_list() -> void :
 		button_instance.set_input_label( input_text );
 		
 		button_instance.pressed.connect( _on_input_button_pressed.bind( button_instance, action ) );
-	
+
+
 func _update_action_list( button : InputButton, input_text : String ) -> void :
 	button.set_input_label( input_text )
 
@@ -74,13 +78,15 @@ func _on_input_button_pressed( button, action ) -> void :
 		
 		remapping_button.set_input_label( "...Press key to rebind" );
 
+
 func _clear_action_list() -> void :
 	if action_list_node == null :
 		return;
 		
 	for item in action_list_node.get_children() : 
 		item.queue_free();
-		
+
+
 func _nice_input_text( text : String ) -> String :
 	return text.trim_suffix("- Physical");
 

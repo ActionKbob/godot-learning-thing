@@ -9,7 +9,8 @@ func set_action_label( value : String ) -> void :
 		return;
 		
 	action_label.text = value;
-	
+
+
 func set_input_label( value : String ) -> void :
 	if input_label == null :
 		return;

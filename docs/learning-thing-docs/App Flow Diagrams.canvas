@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"8f2e3bb049a20c63","type":"group","x":-1440,"y":-180,"width":1240,"height":640,"label":"Main Menu"},
+		{"id":"f03dd3742131013b","type":"group","x":-20,"y":60,"width":580,"height":980,"label":"Game state manager"},
+		{"id":"8f2490861b3b5bbb","type":"group","x":800,"y":60,"width":400,"height":980,"label":"Network manager"},
+		{"id":"f52d8df7321067a3","type":"group","x":20,"y":280,"width":400,"height":400,"label":"Host game state : GameState"},
+		{"id":"fd2d5071686cfe76","type":"group","x":800,"y":-440,"width":290,"height":350,"label":"Scene manager"},
+		{"id":"5ea078798bcd5016","type":"group","x":-1000,"y":-120,"width":300,"height":320,"label":"Game type"},
+		{"id":"c82da0784e62787f","type":"group","x":-600,"y":-120,"width":340,"height":220,"label":"Save select"},
+		{"id":"a972f367b82360a4","type":"text","text":"Play","x":-1380,"y":-120,"width":250,"height":60},
+		{"id":"d1179d9495ef6060","type":"text","text":"Settings","x":-1380,"y":0,"width":250,"height":60},
+		{"id":"1f72d0b06dfc46c7","type":"text","text":"Single Player","x":-980,"y":-90,"width":250,"height":60},
+		{"id":"38771d458f698e78","type":"text","text":"Host Game","x":-980,"y":0,"width":250,"height":60},
+		{"id":"aadb1f6107fb58d3","type":"text","text":"Join Game","x":-980,"y":100,"width":250,"height":60},
+		{"id":"3d782492c28fd7dd","type":"text","text":"Create new","x":-560,"y":-90,"width":250,"height":60},
+		{"id":"1b5f13ee43435fc3","type":"text","text":"Load save","x":-560,"y":0,"width":250,"height":60},
+		{"id":"efb35510892e57e6","type":"text","text":"EXAMPLE-\nrequest_state( id : string = \"host\" )","x":20,"y":100,"width":300,"height":60,"color":"3"},
+		{"id":"7a6e6388f1e824fc","type":"text","text":"enter()","x":45,"y":320,"width":250,"height":60},
+		{"id":"a899ce4bade36a18","type":"text","text":"host_game()","x":840,"y":100,"width":250,"height":60},
+		{"id":"46a5fd2fa9512113","type":"text","text":"start_transition_scene()","x":820,"y":-420,"width":250,"height":60},
+		{"id":"53b1da0271786db9","type":"text","text":"load_scene()","x":820,"y":-300,"width":250,"height":60},
+		{"id":"7d08ceb718b8f450","type":"text","text":"end_transition_scene()","x":820,"y":-180,"width":250,"height":60},
+		{"id":"abbd85d78d5ea378","type":"text","text":"on_server_started","x":45,"y":420,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"c426eceb885ab466","fromNode":"a972f367b82360a4","fromSide":"right","toNode":"5ea078798bcd5016","toSide":"left"},
+		{"id":"4d513755a5b957e6","fromNode":"1f72d0b06dfc46c7","fromSide":"right","toNode":"c82da0784e62787f","toSide":"left"},
+		{"id":"4e966547a472ae42","fromNode":"38771d458f698e78","fromSide":"right","toNode":"c82da0784e62787f","toSide":"left"},
+		{"id":"9642b92e14a536c4","fromNode":"c82da0784e62787f","fromSide":"right","toNode":"efb35510892e57e6","toSide":"left"},
+		{"id":"c1c2c310dc3d3007","fromNode":"aadb1f6107fb58d3","fromSide":"right","toNode":"efb35510892e57e6","toSide":"left"},
+		{"id":"0f172bc623e5108c","fromNode":"efb35510892e57e6","fromSide":"bottom","toNode":"f52d8df7321067a3","toSide":"top"},
+		{"id":"d739568668523cad","fromNode":"7a6e6388f1e824fc","fromSide":"right","toNode":"46a5fd2fa9512113","toSide":"left"},
+		{"id":"3cb6c0f0a796805f","fromNode":"7a6e6388f1e824fc","fromSide":"right","toNode":"a899ce4bade36a18","toSide":"left"},
+		{"id":"62ca2fac53d81633","fromNode":"53b1da0271786db9","fromSide":"bottom","toNode":"7d08ceb718b8f450","toSide":"top"},
+		{"id":"254c92e02a772f6a","fromNode":"a899ce4bade36a18","fromSide":"bottom","toNode":"abbd85d78d5ea378","toSide":"right"},
+		{"id":"140d8373f5af5313","fromNode":"abbd85d78d5ea378","fromSide":"bottom","toNode":"53b1da0271786db9","toSide":"left"}
+	]
+}

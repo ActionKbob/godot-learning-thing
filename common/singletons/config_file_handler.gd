@@ -13,7 +13,8 @@ func _ready() -> void :
 		config.save( SETTINGS_PATH );
 	else :
 		config.load( SETTINGS_PATH );
-		
+
+
 func load_keybindings() :
 	var keybindings = {};
 	
@@ -32,7 +33,8 @@ func load_keybindings() :
 			keybindings[ key ] = input_event;
 		
 	return keybindings;
-	
+
+
 func save_keybinding( action : StringName, event : InputEvent ) -> void :
 	var event_string;
 	
