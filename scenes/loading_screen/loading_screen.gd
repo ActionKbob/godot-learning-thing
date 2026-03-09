@@ -1,16 +1,14 @@
-extends Node
-
-var loading_screen_scene : PackedScene = preload( "res://scenes/load_screen.tscn" );
+extends CanvasLayer
 
 
 func _ready() -> void :
+	layer = 10;
 	SceneManager.scene_load_started.connect( _on_scene_load_start );
 	SceneManager.scene_load_finished.connect( _on_scene_load_finished );
-	
+	hide();
 
 func _on_scene_load_start( _path : String ) -> void :
-	pass
-
-
+	show();
+	
 func _on_scene_load_finished() -> void :
-	pass
+	hide();

@@ -9,37 +9,22 @@ var _current_scene : Node = null;
 func _ready() -> void :
 	_current_scene = get_tree().current_scene;
 
-#func _process( _delta: float ) -> void :
-	#if !_pending_scene_path :
-		#return;
-		#
-	#var status = ResourceLoader.load_threaded_get_status( _pending_scene_path );
-	#
-	#match status :
-		#ResourceLoader.THREAD_LOAD_IN_PROGRESS :
-			#print( "PROGRESS: ", status )
-			#
-		#ResourceLoader.THREAD_LOAD_LOADED :
-			#var packed : PackedScene = ResourceLoader.load_threaded_get( _pending_scene_path );
-			#_finish_scene_load( packed, _pending_scene_path );
-			#_pending_scene_path = "";
-			#set_process( false );
-
 
 func transition_to_scene( path : String ) -> void :
 	scene_load_started.emit( path );
 		
 	ResourceLoader.load_threaded_request( path );
-	#set_process( true );
 	
-	print( GameStateManager.current_state as GameState )
 	await ( GameStateManager.current_state as GameState ).state_ready;
 	
 	while true :
-		var status = ResourceLoader.load_threaded_get_status( path );
+		var progress = [];
+		var status = ResourceLoader.load_threaded_get_status( path, progress );
 		match status :
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS :
-				print( "PROGRESS: ", status );
+				if progress.size() > 0 :
+					print( progress[0] );
+				pass;
 				
 			ResourceLoader.THREAD_LOAD_LOADED :
 				var packed : PackedScene = ResourceLoader.load_threaded_get( path );

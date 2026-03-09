@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dadfacnw7heiu"]
+
+[ext_resource type="Script" uid="uid://d3w0tuieovfsw" path="res://scenes/loading_screen/loading_screen.gd" id="1_8cml4"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1158651298]
+script = ExtResource("1_8cml4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1280713269]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0922687, 0.034346566, 0.12812775, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=212398321]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=1052454094]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "...Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
