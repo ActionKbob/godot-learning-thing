@@ -1,15 +1,11 @@
 class_name MainMenuState
-extends State
+extends GameState
 
 func enter( _data : Dictionary = {} ) -> void :
-	SceneManager.scene_load_finished.connect( _on_scene_load );
+	print( "MAIN MENU ENTER" );
 	SceneManager.transition_to_scene( "res://main_menu/main_menu.tscn" );
 
+	state_ready.emit();
 
 func exit() -> void :
-	SceneManager.scene_load_finished.disconnect( _on_scene_load );
 	print( "MAIN MENU EXIT" )
-
-
-func _on_scene_load() -> void :
-	SceneManager.hide_loading_screen();
