@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://t8d51thjpntm"]
 
-[ext_resource type="Texture2D" uid="uid://ciqnnyp6a1lgw" path="res://icon.svg" id="1_yw8hs"]
+[sub_resource type="TileSet" id="TileSet_qia0n"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
 
 [node name="ShipInterior" type="Node2D" unique_id=771044444]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455239212]
-position = Vector2(666, 360)
-texture = ExtResource("1_yw8hs")
+[node name="Environment" type="Node2D" parent="." unique_id=1894653603]
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=109233449]
-position = Vector2(1092, 582)
-texture = ExtResource("1_yw8hs")
+[node name="Ground" type="TileMapLayer" parent="Environment" unique_id=394308790]
+tile_set = SubResource("TileSet_qia0n")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=176864057]
-position = Vector2(1292, 234)
-texture = ExtResource("1_yw8hs")
+[node name="Players" type="Node2D" parent="." unique_id=799427709]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="Players" unique_id=115511865]

@@ -3,7 +3,7 @@ extends GameState
 
 func enter( _data : Dictionary = {} ) -> void :
 	print( "MAIN MENU ENTER" );
-	SceneManager.transition_to_scene( "res://main_menu/main_menu.tscn" );
+	SceneManager.transition_to_scene( "res://game/main_menu/main_menu.tscn" );
 
 	super.enter();
 

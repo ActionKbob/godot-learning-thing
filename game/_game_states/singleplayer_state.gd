@@ -1,4 +1,4 @@
-class_name ShipInteriorState
+class_name SingleplayerState
 extends GameState
 
 

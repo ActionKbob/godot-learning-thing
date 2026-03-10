@@ -6,7 +6,7 @@ var _history : Array[String] = [];
 
 var current_state : State :
 	get() :
-		if _history.size() > 0 && _states[ _history[0] ] != null :
+		if _history.size() > 0 && _states.has( _history[0] ) :
 			return _states[ _history[ 0 ] ]
 			
 		return null;
@@ -16,19 +16,21 @@ func register_state( id : String, state : State ) -> void :
 
 
 func push_state( id : String ) -> void :
-	_exit_current_state();
+	if _states.has( id ) :
+		_exit_current_state();
+			
+		_history.push_front( id );
 		
-	_history.push_front( id );
-	
-	_enter_current_state();
+		_enter_current_state();
 
 
 func pop_state() -> void :
-	_exit_current_state();
-	
-	_history.pop_front();
-	
-	_enter_current_state();
+	if _history.size() > 1 :
+		_exit_current_state();
+		
+		_history.pop_front();
+		
+		_enter_current_state();
 	
 
 func _enter_current_state() -> void :
