@@ -1,13 +1,13 @@
-class_name SingleplayerState
+class_name JoinGameState
 extends GameState
 
 
 func enter( _data : Dictionary = {} ) -> void :
-	print( "SINGLE PLAYER ENTER" );
+	print( "JOIN ENTER" );
 	SceneManager.transition_to_scene( "res://game/ship_interior/ship_interior.tscn" );
 	
-	state_ready.emit();
+	NetworkManager.join_game();
 
 
 func exit() -> void :
-	print( "SINGLE PLAYER EXIT" );
+	print( "JOIN EXIT" );

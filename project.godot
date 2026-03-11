@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://cd6if3x76gdeh"
 NetworkManager="*uid://c4x0wiv6mxilb"
+PlayerRegistry="*uid://ceiv1laja2doa"
 GameStateManager="*uid://cfsbpp8ywil8k"
 SceneManager="*uid://56wvun23c5mv"
 LoadingScreen="*uid://dadfacnw7heiu"

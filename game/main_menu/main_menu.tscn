@@ -19,8 +19,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CenterContainer" unique_id=2014715838]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=861103053]
 layout_mode = 2
-text = "Play"
+theme_override_constants/separation = 24
 
-[connection signal="pressed" from="CenterContainer/Button" to="." method="_on_button_pressed"]
+[node name="SinglePlayerButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2014715838]
+layout_mode = 2
+text = "Single Player"
+
+[node name="HostGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1497052992]
+layout_mode = 2
+text = "Host Game"
+
+[node name="JoinGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=208215652]
+layout_mode = 2
+text = "Join Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SinglePlayerButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HostGameButton" to="." method="_on_host_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/JoinGameButton" to="." method="_on_join_game_button_pressed"]

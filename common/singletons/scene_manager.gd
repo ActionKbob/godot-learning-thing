@@ -23,8 +23,8 @@ func transition_to_scene( path : String ) -> void :
 		match status :
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS :
 				if progress.size() > 0 :
-					print( progress[0] );
-				pass;
+					#print( progress[0] );
+					pass;
 				
 			ResourceLoader.THREAD_LOAD_LOADED :
 				var packed : PackedScene = ResourceLoader.load_threaded_get( path );
