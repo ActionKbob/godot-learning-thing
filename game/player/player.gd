@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
+func _enter_tree() -> void :
+	set_multiplayer_authority( int( name ) );
+
 func _ready() -> void :
 	print( "Player %s ready" % name );
 	if is_multiplayer_authority() :

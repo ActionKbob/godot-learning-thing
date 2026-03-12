@@ -15,13 +15,13 @@ func register_state( id : String, state : State ) -> void :
 	_states[id] = state;
 
 
-func push_state( id : String ) -> void :
+func push_state( id : String, data : Dictionary = {} ) -> void :
 	if _states.has( id ) :
 		_exit_current_state();
 			
 		_history.push_front( id );
 		
-		_enter_current_state();
+		_enter_current_state( data );
 
 
 func pop_state() -> void :
@@ -33,9 +33,9 @@ func pop_state() -> void :
 		_enter_current_state();
 	
 
-func _enter_current_state() -> void :
+func _enter_current_state( data : Dictionary = {} ) -> void :
 	if current_state != null :
-		_states[ _history[0] ].enter();		
+		_states[ _history[0] ].enter( data );
 
 
 func _exit_current_state() -> void :

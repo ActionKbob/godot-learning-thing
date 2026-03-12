@@ -1,6 +1,7 @@
 extends Node
 
 signal server_created;
+signal client_connected;
 
 const IP_ADDRESS : String = "localhost";
 const PORT : int = 42069;
@@ -22,3 +23,9 @@ func join_game() -> void :
 	peer = ENetMultiplayerPeer.new();
 	peer.create_client( IP_ADDRESS, PORT );
 	multiplayer.multiplayer_peer = peer;
+	
+	multiplayer.connected_to_server.connect( _on_client_connected )
+
+
+func _on_client_connected() -> void :
+	client_connected.emit();

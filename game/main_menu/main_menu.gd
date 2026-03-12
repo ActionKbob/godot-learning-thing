@@ -16,8 +16,8 @@ func _on_button_pressed() -> void :
 
 
 func _on_host_game_button_pressed() -> void:
-	GameStateManager.push_state( "host_game" );
+	GameStateManager.push_state( "multiplayer", { "type" : "host" } );
 
 
 func _on_join_game_button_pressed() -> void:
-	GameStateManager.push_state( "join_game" );
+	GameStateManager.push_state( "multiplayer", { "type" : "join" } );
