@@ -2,10 +2,14 @@ class_name MultiplayerState
 extends GameState
 
 
-func enter( _data : Dictionary = { "type" : "host" } ) -> void :
+func enter( _data : Dictionary = {} ) -> void :
 	print( "MULTIPLAYER ENTER", _data["type"] )
 	
 	SceneManager.transition_to_scene( "res://game/ship_interior/ship_interior.tscn" );
+	
+	var type : String = "host";
+	if _data["type"] != null :
+		type = _data["type"];
 	
 	match _data["type"] :
 		"host" :
