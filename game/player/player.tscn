@@ -2,24 +2,28 @@
 
 [ext_resource type="Script" uid="uid://qw1y1l8362l4" path="res://game/player/player.gd" id="1_b2mth"]
 [ext_resource type="Texture2D" uid="uid://snf7t7hbau74" path="res://assets/knight.png" id="1_obar5"]
-[ext_resource type="Script" uid="uid://dsrtycbd4q41h" path="res://game/player/player_synchronizer.gd" id="2_8soms"]
+[ext_resource type="PackedScene" uid="uid://daxy3odgdxfw7" path="res://common/components/input/input_component.tscn" id="3_a4w0n"]
+[ext_resource type="PackedScene" uid="uid://brp4xvlpqekwu" path="res://common/components/movement/top_down_movement_component.tscn" id="4_5fytw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obar5"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a4w0n"]
+properties/0/path = NodePath(".:movement_vector")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_obar5"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obar5"]
-radius = 2.0
-height = 10.0
-
 [node name="Player" type="CharacterBody2D" unique_id=1300755074]
 collision_mask = 0
 script = ExtResource("1_b2mth")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1490838832]
-replication_config = SubResource("SceneReplicationConfig_obar5")
-script = ExtResource("2_8soms")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1079119189]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=982837084]
 texture_filter = 1
@@ -30,3 +34,14 @@ hframes = 18
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=477076125]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_obar5")
+
+[node name="InputComponent" parent="." unique_id=87955864 instance=ExtResource("3_a4w0n")]
+
+[node name="InputSynchronizer" type="MultiplayerSynchronizer" parent="InputComponent" unique_id=1924292134]
+replication_config = SubResource("SceneReplicationConfig_a4w0n")
+
+[node name="TopDownMovementComponent" parent="." unique_id=689646121 node_paths=PackedStringArray("input_component") instance=ExtResource("4_5fytw")]
+input_component = NodePath("../InputComponent")
+
+[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1490838832]
+replication_config = SubResource("SceneReplicationConfig_obar5")

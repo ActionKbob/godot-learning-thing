@@ -11,7 +11,7 @@ func enter( _data : Dictionary = {} ) -> void :
 	if _data["type"] != null :
 		type = _data["type"];
 	
-	match _data["type"] :
+	match type :
 		"host" :
 			NetworkManager.server_created.connect( _on_connection_established, CONNECT_ONE_SHOT  );
 			NetworkManager.host_game();
