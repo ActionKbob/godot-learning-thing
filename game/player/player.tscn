@@ -5,6 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://daxy3odgdxfw7" path="res://common/components/input/input_component.tscn" id="3_a4w0n"]
 [ext_resource type="PackedScene" uid="uid://brp4xvlpqekwu" path="res://common/components/movement/top_down_movement_component.tscn" id="4_5fytw"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_obar5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obar5"]
 radius = 2.0
 height = 10.0
@@ -14,16 +19,15 @@ properties/0/path = NodePath(".:movement_vector")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_obar5"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-
 [node name="Player" type="CharacterBody2D" unique_id=1300755074]
 collision_mask = 0
 script = ExtResource("1_b2mth")
 
+[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1490838832]
+replication_config = SubResource("SceneReplicationConfig_obar5")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1079119189]
+zoom = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=982837084]
 texture_filter = 1
@@ -42,6 +46,3 @@ replication_config = SubResource("SceneReplicationConfig_a4w0n")
 
 [node name="TopDownMovementComponent" parent="." unique_id=689646121 node_paths=PackedStringArray("input_component") instance=ExtResource("4_5fytw")]
 input_component = NodePath("../InputComponent")
-
-[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1490838832]
-replication_config = SubResource("SceneReplicationConfig_obar5")
